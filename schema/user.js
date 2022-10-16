@@ -2,12 +2,7 @@ const {
   DataTypes
 } = require('sequelize');
 
-const _headPics= `[
-  "https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_3.png",
-  "https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_6.png",
-  "https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_2.png",
-  "https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_4.png"
-]`
+const _headPics= `["https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_3.png","https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_6.png","https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_2.png","https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_4.png"]`
 
 module.exports = sequelize => {
   const attributes = {
@@ -56,14 +51,14 @@ module.exports = sequelize => {
       comment: null,
       field: "county"
     },
-    usename: {
+    username: {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "usename"
+      field: "username"
     },
     headPics: {
       type: DataTypes.TEXT,
