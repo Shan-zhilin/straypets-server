@@ -28,6 +28,7 @@ const queryAdmin = async ({phone,username}) => {
     msg: '',
     data: {
       isAdmin: true,
+      nickname: data.adminname,
       ...data
     }
   }
@@ -56,6 +57,7 @@ const queryUser = async ({phone,username}) => {
     msg: '',
     data: {
       isAdmin: false,
+      nickname: data.username,
       ...data
     }
   }
