@@ -1,5 +1,6 @@
 const sequelize = require("../config/db");
 const PetModel = require("../schema/pets")(sequelize);
+const {formatArray} = require('../utils/format')
 
 // 新增流浪宠物
 const createStrayPets = async (args) => {
@@ -15,7 +16,7 @@ const findAllPets = async () => {
     success: true,
     code: 200,
     msg: "",
-    data: result.dataValues,
+    data: formatArray(result),
   };
 };
 

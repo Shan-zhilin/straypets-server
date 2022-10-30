@@ -4,7 +4,7 @@ const userModel = require('../models/user')
 
 //  增加一条用户
 router.post('/user/create',async (ctx) => {
-  await userModel.createUser(ctx.request.body)
+  ctx.response.body =  await userModel.createUser(ctx.request.body)
 })
 
 module.exports = router

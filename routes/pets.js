@@ -8,7 +8,7 @@ router.post('/pets/createpet',async (ctx) => {
 })
 
 // 查询
-router.post('/pets/get/pets',async (ctx) => {
+router.post('/pets/getpets',async (ctx) => {
   const {body} = ctx.request
   if (body.id) {
     ctx.response.body = await PetModel.findOnePets({id:body.id})
