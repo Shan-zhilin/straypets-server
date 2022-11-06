@@ -100,6 +100,24 @@ module.exports = sequelize => {
       autoIncrement: false,
       comment: null,
       field: "petname"
+    },
+    contact: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "contact"
+    },
+    contactphone: {
+      type: DataTypes.STRING(11),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "contactphone"
     }
   };
   const options = {
