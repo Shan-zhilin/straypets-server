@@ -2,7 +2,7 @@ const {
   DataTypes
 } = require('sequelize');
 
-const headPics= `https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_3.png,https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_6.png,https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_2.png,https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_4.png`
+const headPics= `https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_3.png;https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_6.png;https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_2.png;https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fakeavatar_4.png`
 
 module.exports = sequelize => {
   const attributes = {
