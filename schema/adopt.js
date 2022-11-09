@@ -93,6 +93,15 @@ module.exports = sequelize => {
       autoIncrement: false,
       comment: null,
       field: "address"
+    },
+    adoptid: {
+      type: DataTypes.INTEGER(100),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "adoptid"
     }
   };
   const options = {
