@@ -18,4 +18,14 @@ router.post('/admin/createadmin',async (ctx) => {
   }
 })
 
+// 管理员条件筛选
+router.post('/admin/list',async (ctx) => {
+  const res = await AdminModel.queryAdminList(ctx.request.body)
+  ctx.response.body = {
+    code: 200,
+    success: true,
+    data: res
+  }
+})
+
 module.exports = router

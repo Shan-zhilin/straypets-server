@@ -1,5 +1,6 @@
 const sequelize = require('../config/db')
 const AdminModel = require('../schema/admins')(sequelize)
+const {formatArray} = require('../utils/format')
 
 // 管理员查询
 const findAdmin = async args => {
@@ -26,7 +27,21 @@ const createAdmin = async (args) => {
 
 }
 
+// 管理员条件查询
+const queryAdminList = async (args) => {
+  const {size,page} = args
+  delete args.size
+  delete args.page
+  const result = await AdminModel.findAll({
+    where: args,
+    offset: Number(size) * page,
+    limit: Number(size)
+  })
+  return formatArray(result)
+}
+
 module.exports = {
   createAdmin,
-  findAdmin
+  findAdmin,
+  queryAdminList
 }
