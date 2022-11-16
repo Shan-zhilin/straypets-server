@@ -37,7 +37,11 @@ const queryAdminList = async (args) => {
     offset: Number(size) * page,
     limit: Number(size)
   })
-  return formatArray(result)
+  const count = await AdminModel.count()
+  return {
+    list: formatArray(result),
+    totalCount: count
+  }
 }
 
 module.exports = {
