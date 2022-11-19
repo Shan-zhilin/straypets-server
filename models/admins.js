@@ -44,8 +44,28 @@ const queryAdminList = async (args) => {
   }
 }
 
+// 删除管理员
+const delAdmin = async (args) => {
+  const result = await AdminModel.destroy({
+    where:args
+  })
+  return result
+}
+
+// 更新管理员信息
+const updateAdminInfo = async args => {
+  const result = await AdminModel.update(args,{
+    where:{
+      id:args.id
+    }
+  })
+  return result[0]
+}
+
 module.exports = {
   createAdmin,
   findAdmin,
-  queryAdminList
+  queryAdminList,
+  delAdmin,
+  updateAdminInfo
 }
