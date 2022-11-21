@@ -35,7 +35,8 @@ const queryAdminList = async (args) => {
   const result = await AdminModel.findAll({
     where: args,
     offset: Number(size) * page,
-    limit: Number(size)
+    limit: Number(size),
+    order:[['id','DESC']]
   })
   const count = await AdminModel.count()
   return {

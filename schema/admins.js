@@ -70,7 +70,7 @@ module.exports = sequelize => {
     admintype: {
       type: DataTypes.INTEGER(2),
       allowNull: true,
-      defaultValue: 2,
+      defaultValue: 1,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -79,7 +79,7 @@ module.exports = sequelize => {
     checkstatus: {
       type: DataTypes.INTEGER(3),
       allowNull: true,
-      defaultValue: 1,
+      defaultValue: 0,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
