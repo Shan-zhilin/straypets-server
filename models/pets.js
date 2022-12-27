@@ -42,8 +42,35 @@ const findOnePets = async (args) => {
   };
 };
 
+// 宠物分页查询
+const findPetsList = async (args) => {
+  const {size,page} = args
+  delete args.size
+  delete args.page
+  const result = await PetModel.findAll({
+    where: args,
+    offset: Number(size) * page,
+    limit: Number(size),
+  })
+  const count = await PetModel.count()
+  return {
+    list: formatArray(result),
+    totalCount: count
+  }
+}
+
+// 删除宠物
+const delPet = async args => {
+  const result = await PetModel.destroy({
+    where:args
+  })
+  return result
+}
+
 module.exports = {
   createStrayPets,
   findAllPets,
   findOnePets,
+  findPetsList,
+  delPet
 };

@@ -7,11 +7,11 @@ const headPics= `https://static.tuandongdong.cn/ui/mini-groupdd/avatar/base/fake
 module.exports = sequelize => {
   const attributes = {
     id: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: null,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
       comment: null,
       field: "id"
     },
