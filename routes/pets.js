@@ -4,12 +4,18 @@ const PetModel = require('../models/pets')
 
 // 添加一条流浪宠物
 router.post('/pets/createpet',async (ctx) => {
-  console.log('enter')
   const res = await PetModel.createStrayPets(ctx.request.body)
   if (res) {
     ctx.response.body = {
       success: true,
-      msg: ''
+      msg: '添加成功',
+      code: 200,
+    }
+  }else {
+    ctx.response.body = {
+      success: false,
+      msg: '添加失败',
+      code: 200,
     }
   }
 })
@@ -49,6 +55,25 @@ router.post('/pet/delete', async ctx => {
       code: 200,
       success: true,
       msg: '宠物不存在'
+    }
+  }
+})
+
+
+// 信息更新
+router.post('/pets/update/info', async ctx => {
+  const res = await PetModel.updatePetInfo(ctx.request.body)
+  if (res) {
+    ctx.response.body = {
+      code: 200,
+      success: true,
+      msg: '修改成功'
+    }
+  } else {
+    ctx.response.body = {
+      code: 200,
+      success: true,
+      msg: '修改信息失败'
     }
   }
 })

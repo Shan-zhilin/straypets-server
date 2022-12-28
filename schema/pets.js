@@ -36,7 +36,7 @@ module.exports = sequelize => {
     attention: {
       type: DataTypes.INTEGER(255),
       allowNull: true,
-      defaultValue: null,
+      defaultValue: 286,
       primaryKey: false,
       autoIncrement: false,
       comment: null,

@@ -4,9 +4,10 @@ const { generateMixed } = require('../utils/tools')
 
 // 抽离出来公告上传方法
 async function upload(ctx,position) {
+    console.log(ctx.request.files)
     const { file } = ctx.request.files;
-    const reader = fs.createReadStream(file.path);    // 创建可读流
-    const ext = file.name.split('.').pop();        // 获取上传文件扩展名
+    const reader = fs.createReadStream(file.filepath);    // 创建可读流
+    const ext = file.originalFilename.split('.').pop();        // 获取上传文件扩展名
     const basename = generateMixed(15);  // 随机生成图片名称
     const upStream = fs.createWriteStream(`public/${position}/${basename}.${ext}`); // 创建可写流
 
@@ -28,13 +29,13 @@ async function upload(ctx,position) {
 
 // 上传图片
 router.post('/upload/image', async (ctx) => {
-        const result = await upload(ctx,'uploads/images');
+        const result = await upload(ctx,'upload/images');
         ctx.response.body = result
 })
 
 // 上传非图片类型文件
 router.post('/upload/file', async (ctx) => {
-        const result = await upload(ctx,'uploads/files');
+        const result = await upload(ctx,'upload/files');
         ctx.response.body = result
 })
 

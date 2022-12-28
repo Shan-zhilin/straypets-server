@@ -66,11 +66,20 @@ const delPet = async args => {
   })
   return result
 }
+const updatePetInfo = async args => {
+  const result = await PetModel.update(args,{
+    where:{
+      id:args.id
+    }
+  })
+  return result[0]
+}
 
 module.exports = {
   createStrayPets,
   findAllPets,
   findOnePets,
   findPetsList,
-  delPet
+  delPet,
+  updatePetInfo
 };
