@@ -1,5 +1,6 @@
 const sequelize = require('../config/db')
 const AdoptModel = require('../schema/adopt')(sequelize)
+const {formatArray} = require('../utils/format')
 
 // 查看该手机号是否已经领养
 const queryAdopt = async (args) => {
@@ -21,6 +22,34 @@ const createAdopt = async (args) => {
 
 }
 
+// 领养条件查询
+const queryAdoptList = async (args) => {
+  const {size,page} = args
+  delete args.size
+  delete args.page
+  const result = await AdoptModel.findAll({
+    where: args,
+    offset: Number(size) * page,
+    limit: Number(size),
+    order:[['id','DESC']]
+  })
+  const count = await AdoptModel.count()
+  return {
+    list: formatArray(result),
+    totalCount: count
+  }
+}
+
+// 删除宠物领养记录
+const delPet = async (args) => {
+  const result = await AdoptModel.destroy({
+    where:args
+  })
+  return result
+}
+
 module.exports = {
-  createAdopt
+  createAdopt,
+  queryAdoptList,
+  delPet
 }

@@ -102,7 +102,25 @@ module.exports = sequelize => {
       autoIncrement: false,
       comment: null,
       field: "adoptid"
-    }
+    },
+    remark: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "remark"
+    },
+    isfinish: {
+      type: DataTypes.INTEGER(2),
+      allowNull: true,
+      defaultValue: 0,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "isfinish"
+    },
   };
   const options = {
     tableName: "adopt",
