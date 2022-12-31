@@ -45,4 +45,22 @@ router.post('/adopt/delete', async ctx => {
     }
   }
 })
+
+// 信息更新
+router.post('/adopt/update/info', async ctx => {
+  const res = await AdoptModel.updatePetInfo(ctx.request.body)
+  if (res) {
+    ctx.response.body = {
+      code: 200,
+      success: true,
+      msg: '修改成功'
+    }
+  } else {
+    ctx.response.body = {
+      code: 200,
+      success: true,
+      msg: '修改信息失败'
+    }
+  }
+})
 module.exports = router

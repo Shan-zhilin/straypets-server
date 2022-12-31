@@ -48,8 +48,19 @@ const delPet = async (args) => {
   return result
 }
 
+// 更新宠物员信息
+const updatePetInfo = async args => {
+  const result = await AdoptModel.update(args,{
+    where:{
+      id:args.id
+    }
+  })
+  return result[0]
+}
+
 module.exports = {
   createAdopt,
   queryAdoptList,
-  delPet
+  delPet,
+  updatePetInfo
 }
